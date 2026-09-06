@@ -16,10 +16,12 @@
   --gray-600: #5b6774;
   --gray-800: #2b333c;
   --white: #ffffff;
-  --radius: 10px;
+  --radius: 6px;
   --shadow-sm: 0 1px 3px rgba(15, 41, 66, 0.08);
   --shadow-md: 0 8px 24px rgba(15, 41, 66, 0.12);
   --max-width: 1140px;
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -32,7 +34,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
   color: var(--gray-800);
   background: var(--white);
   line-height: 1.6;
@@ -56,9 +58,15 @@ ul {
 
 h1, h2, h3, h4 {
   margin: 0 0 0.5em;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 600;
   color: var(--navy-900);
   line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  font-weight: 700;
 }
 
 p {
@@ -88,9 +96,10 @@ p {
 .eyebrow {
   display: inline-block;
   color: var(--amber-600);
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -108,9 +117,12 @@ p {
   justify-content: center;
   gap: 8px;
   padding: 14px 28px;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 0.95rem;
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   border: 2px solid transparent;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
@@ -172,6 +184,17 @@ p {
   border-bottom: 1px solid var(--gray-200);
 }
 
+.hazard-stripe {
+  height: 6px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--amber-500),
+    var(--amber-500) 12px,
+    var(--navy-950) 12px,
+    var(--navy-950) 24px
+  );
+}
+
 .topbar {
   background: var(--navy-950);
   color: var(--gray-200);
@@ -212,27 +235,33 @@ p {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
   color: var(--navy-900);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 .brand-mark {
   width: 42px;
   height: 42px;
-  border-radius: 8px;
+  border-radius: 6px;
   background: linear-gradient(135deg, var(--navy-800), var(--navy-950));
   color: var(--amber-500);
+  box-shadow: inset 0 0 0 2px rgba(242, 153, 74, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-display);
   font-size: 1.1rem;
-  font-weight: 800;
+  font-weight: 700;
   flex-shrink: 0;
 }
 
 .brand-text small {
   display: block;
+  font-family: var(--font-body);
   font-size: 0.68rem;
   font-weight: 600;
   color: var(--gray-600);
@@ -247,7 +276,11 @@ p {
 }
 
 .nav-links a {
+  font-family: var(--font-display);
   font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   color: var(--gray-800);
   padding: 6px 2px;
   border-bottom: 2px solid transparent;
@@ -289,7 +322,10 @@ p {
 /* ---------- Hero ---------- */
 
 .hero {
-  background: radial-gradient(circle at 20% 20%, var(--navy-800), var(--navy-950) 65%);
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 42px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 42px),
+    radial-gradient(circle at 20% 20%, var(--navy-800), var(--navy-950) 65%);
   color: var(--white);
   padding: 88px 0;
   position: relative;
@@ -310,10 +346,13 @@ p {
   background: rgba(242, 153, 74, 0.15);
   color: var(--amber-500);
   padding: 6px 14px;
-  border-radius: 999px;
+  border-radius: 4px;
+  border: 1px solid rgba(242, 153, 74, 0.4);
+  font-family: var(--font-display);
   font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   margin-bottom: 20px;
 }
 
@@ -349,11 +388,44 @@ p {
 }
 
 .hero-card {
+  position: relative;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius);
   padding: 28px;
   backdrop-filter: blur(6px);
+}
+
+.hero-card::before,
+.hero-card::after,
+.split-media::before,
+.split-media::after,
+.cta-banner::before,
+.cta-banner::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--amber-500);
+  pointer-events: none;
+}
+
+.hero-card::before,
+.split-media::before,
+.cta-banner::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.hero-card::after,
+.split-media::after,
+.cta-banner::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
 }
 
 .hero-card h3 {
@@ -380,14 +452,18 @@ p {
 .icon-tile {
   width: 52px;
   height: 52px;
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--navy-900);
   color: var(--amber-500);
+  box-shadow: inset 0 0 0 2px rgba(242, 153, 74, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
   flex-shrink: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .icon-tile svg {
@@ -483,7 +559,11 @@ p {
 }
 
 .split-media {
-  background: linear-gradient(160deg, var(--navy-900), var(--navy-700));
+  position: relative;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 36px),
+    linear-gradient(160deg, var(--navy-900), var(--navy-700));
   border-radius: var(--radius);
   padding: 48px 36px;
   color: var(--white);
@@ -511,10 +591,13 @@ p {
 .badge {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 10px 14px;
-  font-size: 0.82rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--gray-200);
 }
 
@@ -554,11 +637,12 @@ p {
 
 .timeline-item span.tag {
   display: inline-block;
+  font-family: var(--font-display);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--amber-600);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   margin-bottom: 6px;
 }
 
@@ -570,7 +654,11 @@ p {
 /* ---------- CTA banner ---------- */
 
 .cta-banner {
-  background: linear-gradient(120deg, var(--navy-950), var(--navy-800));
+  position: relative;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 36px),
+    linear-gradient(120deg, var(--navy-950), var(--navy-800));
   color: var(--white);
   border-radius: var(--radius);
   padding: 56px;
@@ -611,7 +699,10 @@ p {
 /* ---------- Page hero (interior pages) ---------- */
 
 .page-hero {
-  background: linear-gradient(120deg, var(--navy-950), var(--navy-900));
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 36px),
+    linear-gradient(120deg, var(--navy-950), var(--navy-900));
   color: var(--white);
   padding: 64px 0;
   text-align: center;
