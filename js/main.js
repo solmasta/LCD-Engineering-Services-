@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Contact form — client-side validation + friendly confirmation.
-  // No backend is wired up yet; this opens the visitor's email client
-  // pre-filled with their message as a reliable fallback.
+  // No backend or business email is set up yet, so this opens a
+  // pre-filled text message to the business phone number as a fallback.
   var form = document.getElementById("contact-form");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -48,19 +48,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       var body = [
         "Name: " + name,
-        "Email: " + email,
-        "Phone: " + (phone || "Not provided"),
+        "Phone: " + phone,
+        "Email: " + (email || "Not provided"),
         "Service needed: " + (service || "Not specified"),
         "",
         message,
       ].join("\n");
 
-      var mailto =
-        "mailto:contact@lcdengineeringservices.com" +
-        "?subject=" + encodeURIComponent("New inquiry from " + name) +
-        "&body=" + encodeURIComponent(body);
+      var sms = "sms:+13125159931?body=" + encodeURIComponent(body);
 
-      window.location.href = mailto;
+      window.location.href = sms;
 
       var success = document.getElementById("form-success");
       if (success) {

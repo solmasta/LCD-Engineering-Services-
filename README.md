@@ -28,10 +28,12 @@ then visit `http://localhost:8000`.
 
 ## Notes
 
-- Placeholder contact details (`(555) 555-0123`, `contact@lcdengineeringservices.com`)
-  and address are used throughout — update them with real business info before
-  going live.
-- The contact form currently opens the visitor's email client with a pre-filled
-  message (no backend). Swap in a form service (e.g. Formspree) or a small
-  backend endpoint later if you want submissions delivered without relying on
-  the visitor's email client.
+- Contact number is (312) 515-9931; service area is Chicago and surrounding
+  suburbs (Cook County). There's no business email yet — add one to the
+  topbar/footer/contact page across all four pages once you have one.
+- The contact form currently opens the visitor's messaging app with a
+  pre-filled text to the business number (no backend, no email set up yet).
+  SMS links are unreliable on desktop browsers, so the form note tells
+  desktop visitors to just call/text directly. Once you have a business
+  email or want submissions delivered without relying on the visitor's own
+  phone, swap in a form service (e.g. Formspree) or a small backend endpoint.
