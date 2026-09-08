@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var name = form.querySelector("#name").value.trim();
       var email = form.querySelector("#email").value.trim();
       var phone = form.querySelector("#phone").value.trim();
+      var unitsField = form.querySelector("#units");
+      var units = unitsField ? unitsField.value.trim() : "";
       var service = form.querySelector("#service").value;
       var message = form.querySelector("#message").value.trim();
 
@@ -50,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Name: " + name,
         "Phone: " + phone,
         "Email: " + (email || "Not provided"),
+        "Units/Properties: " + (units || "Not specified"),
         "Service needed: " + (service || "Not specified"),
         "",
         message,

@@ -1,7 +1,8 @@
 # LCD Engineering Services
 
-A static business website for LCD Engineering Services — mobile HVAC and mechanical
-repair, diagnostics, and consulting.
+A static business website for LCD Engineering Services — property management and
+maintenance operations for multi-unit residential and mixed-use commercial
+portfolios in Chicago and surrounding suburbs.
 
 ## Pages
 
